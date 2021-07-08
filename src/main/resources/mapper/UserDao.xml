@@ -24,10 +24,7 @@
         SELECT id,userno,cours,score FROM userinfo WHERE userno=#{userno}
     </select>
 
-    <!--
-    <select id="queryAllUsers" resultType="com.example.demo.domain.User">
-        SELECT id,userno,`name`,age,sex FROM user
-    </select> -->
+    <!-- 关于collection标签中的相关属性和上边的association标签类似，区别之一只是一个使用的是javaType一个使用的是ofType -->
 
     <select id="queryOneUser" resultType="com.example.demo.domain.Userinfo">
         SELECT id,userno,cours,score FROM userinfo WHERE userno=#{userno}
@@ -39,6 +36,7 @@
         <result property="num" column="num"/>
         <result property="note" column="note"/>
         <result property="ctime" column="ctime"/>
+        <!-- 关联关系：一对一 -->
         <association property="user" javaType="com.example.demo.domain.User">
             <id column="id" property="id"/>
             <result property="userno" column="userno"/>
