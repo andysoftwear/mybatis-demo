@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.demo.dao.UserDao">
+    <!-- 一对多查询案例 -->
+    <resultMap type="com.example.demo.domain.User" id="selectUser">
+        <id property="id" column="id"/>
+        <result property="userno" column="userno"/>
+        <result property="name" column="name"/>
+        <result property="age" column="age"/>
+        <result property="sex" column="sex"/>
+        <collection property="userinfo" ofType="com.example.demo.domain.Userinfo" select="selectUserinfo" column="userno">
+            <id property="id" column="id"/>
+            <result property="userno" column="userno"/>
+            <result property="cours" column="cours"/>
+            <result property="score" column="score"/>
+        </collection>
+    </resultMap>
+    <!-- 主查询 -->
+    <select id="queryAllUsers" resultMap="selectUser">
+        SELECT id,userno,`name`,age,sex FROM user
+    </select>
+    <!-- 隐式查询 -->
+    <select id="selectUserinfo" parameterType="Long" resultType="com.example.demo.domain.Userinfo">
+        SELECT id,userno,cours,score FROM userinfo WHERE userno=#{userno}
+    </select>
+
+    <!--
+    <select id="queryAllUsers" resultType="com.example.demo.domain.User">
+        SELECT id,userno,`name`,age,sex FROM user
+    </select> -->
+
+    <select id="queryOneUser" resultType="com.example.demo.domain.Userinfo">
+        SELECT id,userno,cours,score FROM userinfo WHERE userno=#{userno}
+    </select>
+
+</mapper>
