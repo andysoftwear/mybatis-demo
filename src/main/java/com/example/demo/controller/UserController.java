@@ -28,4 +28,8 @@ public class UserController {
         return userServer.queryOneUser(userno);
     }
 
+    @GetMapping("/order")
+    public Object getUserOrder(HttpServletRequest request, HttpServletResponse response){
+        return userServer.findUserOrders();
+    }
 }

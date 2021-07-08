@@ -33,4 +33,25 @@
         SELECT id,userno,cours,score FROM userinfo WHERE userno=#{userno}
     </select>
 
+    <resultMap id="findUserOrderMap" type="com.example.demo.domain.Orders">
+        <id column="id" property="id"/>
+        <result property="userno" column="userno"/>
+        <result property="num" column="num"/>
+        <result property="note" column="note"/>
+        <result property="ctime" column="ctime"/>
+        <association property="user" javaType="com.example.demo.domain.User">
+            <id column="id" property="id"/>
+            <result property="userno" column="userno"/>
+            <result property="name" column="name"/>
+            <result property="age" column="age"/>
+            <result property="sex" column="sex"/>
+        </association>
+    </resultMap>
+    <select id="findUserOrders" resultMap="findUserOrderMap">
+        SELECT u.id,u.userno,u.name,u.sex,o.id oid,o.num,o.note,o.ctime
+        FROM
+            user u,orders o
+        WHERE
+            o.userno=u.userno
+    </select>
 </mapper>

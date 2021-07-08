@@ -1,6 +1,7 @@
 package com.example.demo.server;
 
 import com.example.demo.dao.UserDao;
+import com.example.demo.domain.Orders;
 import com.example.demo.domain.User;
 import com.example.demo.domain.Userinfo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,5 +21,9 @@ public class UserServer {
 
     public List<Userinfo> queryOneUser(Long userno){
         return userDao.queryOneUser(userno);
+    }
+
+    public List<Orders> findUserOrders(){
+        return userDao.findUserOrders();
     }
 }
