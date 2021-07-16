@@ -40,3 +40,14 @@ mv consul /usr/service
 ./consul agent -server -bootstrap-expect 1 -data-dir=/tmp/consul -node=n1 -bind=127.0.0.1 -client=0.0.0.0 -ui
 ```
 
+```
+# 查看集群成员
+consul members
+
+# 查看集群状态
+consul info
+
+# 帮助
+consul agent -h
+```
+
