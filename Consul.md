@@ -1,20 +1,16 @@
-# 1，安装包获取：
+### 1，安装包获取：
 
 ```
  wget https://releases.hashicorp.com/consul/1.10.1/consul_1.10.1_linux_amd64.zip
 ```
 
-
-
-# 2，解压包
+### 2，解压包
 
 ```
 unzip consul_1.7.2_linux_amd64.zip
 ```
 
-
-
-# 3，拷贝到usr目录下
+### 3，拷贝到usr目录下
 
 ```
 cd /usr
@@ -23,13 +19,13 @@ cd /home
 mv consul /usr/service
 ```
 
-# 4，查看 安装是否成功
+### 4，查看 安装是否成功
 
 ```
 ./consul
 ```
 
-# 5,  启动
+### 5,  启动
 
 ```
 -server 表示是server模式
