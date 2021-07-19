@@ -1,0 +1,1 @@
+start /d "C:\Program Files (x86)\ZeroC\Ice-3.5.1\bin" java -jar IceGridGUI.jar
